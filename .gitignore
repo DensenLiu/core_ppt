@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local files (do not commit)
+uploads/
+output/
+debug_*.js
+debug_analyze_gen.js
+debug_check_gen.js
+debug_compare.js
+.claude/

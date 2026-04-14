@@ -3,11 +3,25 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #1F4E78;
+  --primary-hover: #2c6a9e;
+  --secondary: #f5f5f5;
+  --border: #e5e5e5;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,11 +30,56 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --secondary: #1a1a1a;
+    --border: #333333;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-indicator {
+  @apply flex items-center gap-2;
+}
+
+.step-indicator .step {
+  @apply w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-all;
+}
+
+.step-indicator .step.active {
+  @apply bg-[var(--primary)] text-white;
+}
+
+.step-indicator .step.completed {
+  @apply bg-[var(--success)] text-white;
+}
+
+.step-indicator .step.pending {
+  @apply bg-[var(--secondary)] text-gray-500 border border-[var(--border)];
+}
+
+.step-indicator .step-line {
+  @apply h-0.5 w-12 bg-[var(--border)];
+}
+
+.step-indicator .step-line.completed {
+  @apply bg-[var(--success)];
 }
